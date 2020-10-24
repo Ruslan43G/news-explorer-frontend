@@ -1,0 +1,15 @@
+.searchresults {
+  background-color: #F5F6F7;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchresults__title {
+  margin: 0 0 64px 104px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+}

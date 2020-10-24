@@ -1,0 +1,36 @@
+.newscardlist {
+  width: 85.56%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.newscardlist__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.newscardlist__container_small {
+  max-height: 580px;
+}
+
+.newscardlist__show-btn {
+  padding: 0;
+  border: none;
+  outline: none;
+  width: 288px;
+  height: 54px;
+  background: #FFFFFF;
+  border-radius: 80px;
+  margin: 64px 0 0;
+  align-self: center;
+}
+
+.newscardlist__show-btn:hover {
+  opacity: 0.9;
+}
