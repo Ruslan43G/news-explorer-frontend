@@ -5,6 +5,7 @@
   border-radius: 16px;
   background-color: #ffffff;
   position: relative;
+  cursor: url(../../images/pointer.svg), default;
 }
 
 .newscard__keyword {
@@ -29,6 +30,7 @@
 }
 
 .newscard__icon {
+  padding: 0;
   width: 40px;
   height: 40px;
   border: none;
@@ -67,6 +69,34 @@
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 45px;
+}
+
+.newscard__icon_trash  {
+  background-image: url(../../images/NewsCard/icon-trash.svg);
+}
+
+.newscard__icon_trash:hover  {
+  background-image: url(../../images/NewsCard/icon-trash.svg);
+}
+
+.newscard__icon_trash:hover::before {
+  content: 'Убрать из сохранённых';
+  width: 159px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
   display: flex;
   flex-direction: row;
   align-items: center;

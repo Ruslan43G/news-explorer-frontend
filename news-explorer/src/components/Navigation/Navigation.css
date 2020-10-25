@@ -2,6 +2,10 @@
   color: white;
 }
 
+.navigation_theme_dark {
+  color: black;
+}
+
 .navigation__list {
   display: flex;
   flex-direction: row;
@@ -20,14 +24,22 @@
   line-height: 24px;
   margin-right: 32px;
   padding-bottom: 28px;
-  color: inherit;
+  color: #B6BCBF;
 }
 
+.navigation__item_black {
+  color: black;
+}
 .navigation__item_hidden {
   display: none;
 }
 .navigation__item_underline {
   border-bottom: 3px solid white;
+  color: white;
+}
+
+.navigation__item_underline_black {
+  border-bottom: 3px solid black;
 }
 
 .navigation__btn {
@@ -49,6 +61,11 @@
   justify-content: space-evenly;
   padding: 0 20px;
 }
+
+.navigation__btn_black {
+  border: 1px solid black;
+}
+
 
 .navigation__logout {
   margin-left: 5px;

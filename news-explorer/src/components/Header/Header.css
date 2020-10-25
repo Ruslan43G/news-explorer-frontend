@@ -9,6 +9,11 @@
   z-index: 1;
 }
 
+.header__link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header_theme_light {
   color: black;
   border-bottom: 1px solid #E5E5E5;
