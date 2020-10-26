@@ -1,7 +1,7 @@
 import React from 'react';
 import './SavedNews.css';
-
 import NewsCard from '../NewsCard/NewsCard';
+
 import image1 from '../../images/NewsCard/image.jpg';
 import image2 from '../../images/NewsCard/image2.jpg';
 import image3 from '../../images/NewsCard/image3.jpg';

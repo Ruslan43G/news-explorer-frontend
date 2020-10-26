@@ -1,5 +1,6 @@
 .popup {
   visibility: hidden;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
@@ -9,10 +10,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: visibility 0.5s, opacity 0.5s linear;
+  z-index: 3;
 }
 
 .popup_opened {
   visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s, opacity 0.5s linear;
 }
 
 .popup__form {
@@ -53,6 +58,16 @@
   color: #1A1B22;
 }
 
+.popup__server-error {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #FF0000;
+}
+
 .popup__submit {
   width: 360px;
   height: 64px;
@@ -68,7 +83,7 @@
   font-size: 18px;
   line-height: 24px;
   color: #FFFFFF;
-  margin: 20px 0;
+  margin: 17px 0;
 }
 
 .popup__submit_disabled {
@@ -90,6 +105,9 @@
 }
 
 .popup__link {
+  background-color: transparent;
+  border: none;
+  outline: none;
   text-decoration: none;
   font-family: Inter;
   font-style: normal;

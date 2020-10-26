@@ -14,6 +14,10 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   // переменная состояния для статуса темы хидера
   const [light, setLight] = React.useState(false);
+  // переменная состояния открытия попапа регистрации
+  const [regIsopen, setRegIsOpen] = React.useState(false);
+  // переменная состояния открытия попапа входа
+  const [loginIsopen, setLoginIsOpen] = React.useState(false);
 
   function changeLoggedInStatus () {
     setLoggedIn(!loggedIn);
@@ -21,7 +25,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light}/>
+      <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light} openLogin={setLoginIsOpen}/>
       <Switch>
         <Route exact path='/'>
           <Main header={setLight} loggedIn={loggedIn}/>
@@ -31,8 +35,8 @@ function App() {
           <SavedNews />
         </Route>
       </Switch>
-        <LoginPopup />
-        <RegisterPopup />
+        <LoginPopup isOpen={loginIsopen} link={setRegIsOpen} close={setLoginIsOpen}/>
+        <RegisterPopup isOpen={regIsopen} link={setLoginIsOpen} close={setRegIsOpen}/>
       <Footer />
     </div>
   );

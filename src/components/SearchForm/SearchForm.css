@@ -39,14 +39,17 @@
 
 .searchform__container {
   position: relative;
+  width: 100%;
 }
 
 .searchform__input {
-  width: 100%;
+  width: 99%;
   height: 64px;
   padding: 0;
   border: none;
   outline: none;
+  border: 1px solid #D1D2D6;
+  box-sizing: border-box;
   border-radius: 100px;
   text-indent: 24px;
   font-family: Roboto;
@@ -74,6 +77,7 @@
   padding: 0;
   outline: none;
   border-radius: 100px;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border: none;
   background-color: #2F71E5;
   color: white;
@@ -84,7 +88,7 @@
   line-height: 24px;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
 }
 
 .searchform__btn:hover {

@@ -9,7 +9,7 @@ export default function Header (props) {
   return (
       <header className={`header ${props.theme ? 'header_theme_light' : 'header_theme_dark'}`}>
           <Link className='header__link' to='/'><Logo /></Link>
-          <Navigation theme={props.theme} loggedIn={props.loggedIn} auth={props.auth}/>
+          <Navigation theme={props.theme} loggedIn={props.loggedIn} auth={props.auth} openLogin={props.openLogin}/>
       </header>
   )
 }
