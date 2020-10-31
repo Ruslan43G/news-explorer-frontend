@@ -4,8 +4,6 @@ import NewsCard from '../NewsCard/NewsCard';
 import image1 from '../../images/NewsCard/image.jpg';
 import image2 from '../../images/NewsCard/image2.jpg';
 import image3 from '../../images/NewsCard/image3.jpg';
-import image4 from '../../images/NewsCard/image4.jpg';
-import image5 from '../../images/NewsCard/image5.jpg';
 
 // Временные константы для наполнения карточек
 const title1 = 'Национальное достояние – парки';
@@ -31,8 +29,6 @@ export default function NewsCardList (props) {
         <NewsCard loggedIn={props.loggedIn} keyword={'Природа'} image={image1} date={'2 августа, 2019'} title={title1} text={text1} source={'ДЗЭН'} />
         <NewsCard loggedIn={props.loggedIn} keyword={'Тайга'} image={image2} date={'2 августа, 2019'} title={title2} text={text2} source={'Афиша'} />
         <NewsCard loggedIn={props.loggedIn} keyword={'Фотография'} image={image3} date={'2 августа, 2019'} title={title3} text={text3} source={'Медиазона'} />
-        <NewsCard loggedIn={props.loggedIn} keyword={'Природа'} image={image4} date={'2 августа, 2019'} title={title1} text={text1} source={'ДЗЭН'} />
-        <NewsCard loggedIn={props.loggedIn} keyword={'Фотография'} image={image5} date={'2 августа, 2019'} title={title2} text={text2} source={'Афиша'} />
       </div>
       <button className='newscardlist__show-btn' onClick={changeHeight}>Показать еще</button>
     </section>

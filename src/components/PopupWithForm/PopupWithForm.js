@@ -24,6 +24,12 @@ export default function PopupWithForm (props) {
     }
   }
 
+  function submithandler(evt) {
+    evt.preventDefault();
+    closePopup();
+    props.submit(true);
+  }
+
   React.useEffect(() => {
     document.addEventListener('keydown', escClose);
     return () => document.removeEventListener('keydown', escClose);
@@ -36,7 +42,7 @@ export default function PopupWithForm (props) {
         <h3 className='popup__title'>{props.title}</h3>
         {props.children}
         <span className='popup__server-error'>такой пользователь уже есть</span>
-        <button type='submit' className='popup__submit'>{props.buttonText}</button>
+        <button type='submit' className='popup__submit' onClick={submithandler}>{props.buttonText}</button>
         <p className='popup__footer'>или<button type='button' onClick={openAnotherPopup} className='popup__link'>{props.linkText}</button></p>
       </form>
     </section>

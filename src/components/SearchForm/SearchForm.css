@@ -5,10 +5,8 @@
   background-image: url(../../images/SearchForm/searchform-background.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 657px;
-  /* position: relative;
-  top: -81px;
-  z-index: 1; */
   margin-top: -81px;
   color: white;
 }
@@ -40,11 +38,12 @@
 .searchform__container {
   position: relative;
   width: 100%;
+  height: 64px;
 }
 
 .searchform__input {
   width: 99%;
-  height: 64px;
+  height: 100%;
   padding: 0;
   border: none;
   outline: none;
@@ -73,7 +72,7 @@
 
 .searchform__btn {
   width: 168px;
-  height: 64px;
+  height: 100%;
   padding: 0;
   outline: none;
   border-radius: 100px;
@@ -97,4 +96,32 @@
 
 .searchform__btn:active {
   background-color: #2A65CC;
+}
+
+@media screen and (max-width: 768px) {
+
+  .searchform {
+    height: 400px;
+  }
+  .searchform__form {
+    width: 58.85%;
+  }
+
+  .searchform__title {
+    margin: 104px 0 16px;
+    font-size: 36px;
+    line-height: 40px;
+    max-width: 300px;
+  }
+
+  .searchform__subtitle {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+
+  .searchform__container {
+    height: 56px;
+  }
+
 }

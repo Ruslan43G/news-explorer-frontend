@@ -1,6 +1,2 @@
+@import url(../src/vendor/fonts/fonts.css);
 @import url(../src/vendor/normalize.css);
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

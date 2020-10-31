@@ -1,8 +1,10 @@
 .about {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 80px 214px 80px 104px;
+  padding: 80px 15% 80px 104px;
 
 }
 
@@ -11,6 +13,7 @@
   height: 464px;
   border-radius: 50%;
   margin-right: 50px;
+  object-fit: cover;
 }
 
 .about__data {
@@ -31,4 +34,40 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .about {
+    padding: 50px 5%;
+  }
+
+  .about__avatar {
+    width: 348px;
+    height: 348px;
+  }
+
+  .about__title {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 60px 40px;
+  }
+
+  .about__avatar {
+    width: 232px;
+    height: 232px;
+  }
+
+  .about__title {
+    margin: -17px 0 0;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .about__data {
+    max-width: 424px;
+  }
 }

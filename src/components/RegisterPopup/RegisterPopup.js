@@ -5,7 +5,7 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 export default function RegisterPopup (props) {
 
   return (
-    <PopupWithForm name={'signup'} link={props.link} isOpen={props.isOpen} close={props.close} title='Регистрация' buttonText='Зарегистрироваться' linkText='Войти'>
+    <PopupWithForm submit={props.succes} name={'signup'} link={props.link} isOpen={props.isOpen} close={props.close} title='Регистрация' buttonText='Зарегистрироваться' linkText='Войти'>
       <label className='popup__label'>Email</label>
       <input type='email' className='popup__input' placeholder='Введите email' required></input>
       <span className='popup__error'></span>

@@ -1,9 +1,7 @@
 .newscardlist {
-  width: 85.56%;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .newscardlist__container {
@@ -33,4 +31,20 @@
 
 .newscardlist__show-btn:hover {
   opacity: 0.9;
+}
+
+@media screen and (max-width: 800px) {
+
+  .newscardlist {
+    padding: 0;
+  }
+  .newscardlist__container {
+    gap: 8px;
+  }
+
+  .newscardlist__show-btn {
+    margin: 22px 0 0;
+    width: 240px;
+    height: 56px;
+  }
 }

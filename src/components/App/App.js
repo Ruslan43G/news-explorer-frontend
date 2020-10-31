@@ -8,6 +8,7 @@ import SavedNews from '../SavedNews/SavedNews';
 import Footer from '../Footer/Footer';
 import RegisterPopup from '../RegisterPopup/RegisterPopup';
 import LoginPopup from '../LoginPopup/LoginPopup';
+import PopupSucces from '../PopupSucces/PopupSucces';
 
 function App() {
   // переменная состояния отвечающая за авторизацию.
@@ -18,6 +19,8 @@ function App() {
   const [regIsopen, setRegIsOpen] = React.useState(false);
   // переменная состояния открытия попапа входа
   const [loginIsopen, setLoginIsOpen] = React.useState(false);
+  // переменная состояния попапа с сообщением
+  const [succesIsopen, setSuccesIsOpen] = React.useState(false);
 
   function changeLoggedInStatus () {
     setLoggedIn(!loggedIn);
@@ -36,7 +39,8 @@ function App() {
         </Route>
       </Switch>
         <LoginPopup isOpen={loginIsopen} link={setRegIsOpen} close={setLoginIsOpen}/>
-        <RegisterPopup isOpen={regIsopen} link={setLoginIsOpen} close={setRegIsOpen}/>
+        <RegisterPopup isOpen={regIsopen} link={setLoginIsOpen} close={setRegIsOpen} succes={setSuccesIsOpen}/>
+        <PopupSucces isOpen={succesIsopen} close={setSuccesIsOpen} link={setLoginIsOpen}/>
       <Footer />
     </div>
   );
