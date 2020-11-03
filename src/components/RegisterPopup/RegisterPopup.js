@@ -11,7 +11,7 @@ export default function RegisterPopup (props) {
       <span className='popup__error'></span>
       <label className='popup__label'>Пароль</label>
       <input type='password' className='popup__input' placeholder='Введите пароль' required></input>
-      <span className='popup__error'>Error</span>
+      <span className='popup__error'></span>
       <label className='popup__label'>Имя</label>
       <input type='text' className='popup__input' placeholder='Введите своё имя' required></input>
       <span className='popup__error'></span>

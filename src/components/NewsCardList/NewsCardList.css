@@ -13,10 +13,6 @@
   overflow: hidden;
 }
 
-.newscardlist__container_small {
-  max-height: 580px;
-}
-
 .newscardlist__show-btn {
   padding: 0;
   border: none;
@@ -48,3 +44,20 @@
     height: 56px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .newscardlist__container {
+    gap: 8px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .newscardlist__show-btn {
+    width: 288px;
+    margin: 15px 0 0;
+  }
+}
+
+
+

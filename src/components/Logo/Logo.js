@@ -4,8 +4,8 @@ import './Logo.css';
 export default function Logo (props) {
 
     return (
-        <div className='logo'>NewsExplorer</div>
+        <div className={`logo ${props.open ? 'logo_mobile-opened' : ''}`}>NewsExplorer</div>
     )
-        
-    
+
+
 }

@@ -13,10 +13,10 @@ export default function Header (props) {
   }
 
   return (
-      <header className={`header ${mobileMenuOpened ? 'header_mobile-opened' : ''} ${props.theme ? 'header_theme_light' : 'header_theme_dark'}`}>
-        <Link className='header__link' to='/'><Logo /></Link>
-        <button type='button' onClick={toggleMenu} className={`header__mobile-menu ${mobileMenuOpened ? 'header__mobile-menu_close' : ''}`}></button>
-        <Navigation open={mobileMenuOpened} theme={props.theme} loggedIn={props.loggedIn} auth={props.auth} openLogin={props.openLogin}/>
+      <header className={`header ${mobileMenuOpened ? 'header_mobile-opened' : ''} ${props.loginPopup && mobileMenuOpened ? 'header_transparent' : ''} ${props.theme ? 'header_theme_light' : 'header_theme_dark'}`}>
+        <Link className='header__link' to='/'><Logo open={mobileMenuOpened}/></Link>
+        <button type='button' onClick={toggleMenu} className={`header__mobile-menu ${props.theme ? 'header__mobile-menu_black' : ''} ${mobileMenuOpened ? 'header__mobile-menu_close' : ''}`}></button>
+        <Navigation open={mobileMenuOpened} setMenu={toggleMenu} theme={props.theme} loggedIn={props.loggedIn} auth={props.auth} openLogin={props.openLogin}/>
       </header>
   )
 }

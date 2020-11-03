@@ -15,22 +15,15 @@ const text3 = 'Знаменитый фотограф снимает первоз
 
 
 export default function NewsCardList (props) {
-  // переменная состояния высоты контейнера с карточками
-  const [fullSize, setFullSize] = React.useState(false);
-
-  // функция изменения высоты контейнера с карточками. Применяется на кнопке "Показать еще".
-  function changeHeight () {
-    setFullSize(true);
-  }
 
   return (
     <section className='newscardlist'>
-      <div className={`newscardlist__container ${fullSize ? '' : 'newscardlist__container_small'}`}>
+      <div className={`newscardlist__container`}>
         <NewsCard loggedIn={props.loggedIn} keyword={'Природа'} image={image1} date={'2 августа, 2019'} title={title1} text={text1} source={'ДЗЭН'} />
         <NewsCard loggedIn={props.loggedIn} keyword={'Тайга'} image={image2} date={'2 августа, 2019'} title={title2} text={text2} source={'Афиша'} />
         <NewsCard loggedIn={props.loggedIn} keyword={'Фотография'} image={image3} date={'2 августа, 2019'} title={title3} text={text3} source={'Медиазона'} />
       </div>
-      <button className='newscardlist__show-btn' onClick={changeHeight}>Показать еще</button>
+      <button className='newscardlist__show-btn'>Показать еще</button>
     </section>
   )
 }

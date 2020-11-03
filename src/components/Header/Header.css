@@ -38,6 +38,10 @@
   background-color: transparent;
 }
 
+.header__mobile-menu_black {
+  background-image: url(../../images/Navigation/menu-black.svg);
+}
+
 .header__mobile-menu_close {
   background-image: url(../../images/Navigation/close.svg);
 }
@@ -50,9 +54,13 @@
   }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 674px) {
   .header_mobile-opened {
     background-color: #1A1B22;
+  }
+
+  .header_transparent {
+    background-color: transparent;
   }
   .header__mobile-menu {
     visibility: visible;

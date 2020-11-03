@@ -11,3 +11,8 @@
 button, a {
   cursor: url(../../images/pointer.svg), default;
 }
+
+a:hover {
+  opacity: 0.8;
+  transition: opacity 0.5s linear;
+}

@@ -41,8 +41,8 @@ export default function PopupWithForm (props) {
         <button type='reset' className='popup__close' onClick={closePopup}></button>
         <h3 className='popup__title'>{props.title}</h3>
         {props.children}
-        <span className='popup__server-error'>такой пользователь уже есть</span>
-        <button type='submit' className='popup__submit' onClick={submithandler}>{props.buttonText}</button>
+        <span className='popup__server-error'>{props.error}</span>
+        <button type='submit' className='popup__submit popup__submit_disabled' onClick={submithandler}>{props.buttonText}</button>
         <p className='popup__footer'>или<button type='button' onClick={openAnotherPopup} className='popup__link'>{props.linkText}</button></p>
       </form>
     </section>

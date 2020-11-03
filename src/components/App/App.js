@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light} openLogin={setLoginIsOpen}/>
+      <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light} openLogin={setLoginIsOpen} loginPopup={loginIsopen}/>
       <Switch>
         <Route exact path='/'>
           <Main header={setLight} loggedIn={loggedIn}/>
