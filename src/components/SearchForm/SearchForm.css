@@ -58,7 +58,9 @@
   line-height: 22px;
   color: #1A1B22;
   margin: 0 auto;
-  backdrop-filter: blur(8px);
+}
+
+.searchform__input:focus {
   caret-color: #2F71E5;
 }
 
@@ -99,7 +101,7 @@
   background-color: #2A65CC;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 876px) {
 
   .searchform {
     height: 400px;
@@ -125,7 +127,6 @@
   .searchform__container {
     height: 56px;
   }
-
 }
 
 @media screen and (max-width: 618px) {

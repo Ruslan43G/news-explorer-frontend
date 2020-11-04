@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .footer__copyright {
@@ -67,6 +68,10 @@
   .footer {
     padding: 20px 16px;
     flex-direction: column-reverse;
+  }
+
+  .footer__list {
+    justify-content: space-between;
   }
 
   .footer__links {

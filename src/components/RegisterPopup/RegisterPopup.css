@@ -20,7 +20,6 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  caret-color: #2F71E5;
 }
 
 .popup__input::placeholder {
@@ -35,6 +34,7 @@
 
 .popup__input:focus {
   border-bottom: 1px solid #000000;
+  caret-color: #2F71E5;
 }
 
 .popup__error {
