@@ -1,0 +1,18 @@
+.app {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+}
+
+button, a {
+  cursor: url(../../images/pointer.svg), default;
+}
+
+a:hover {
+  opacity: 0.8;
+  transition: opacity 0.5s linear;
+}

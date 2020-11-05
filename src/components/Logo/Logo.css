@@ -1,0 +1,19 @@
+.logo {
+  max-width: 200px;
+  height: 24px;
+  font-family: 'Roboto Slab', Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 674px) {
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo_mobile-opened {
+    color: white;
+  }
+}
