@@ -26,7 +26,7 @@ export default function PopupWithForm (props) {
 
   function submithandler(evt) {
     evt.preventDefault();
-    closePopup();
+    // closePopup();
     props.submit(true);
   }
 

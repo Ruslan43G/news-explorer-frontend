@@ -11,13 +11,13 @@ export default function Navigation (props) {
   const history = useHistory();
 
   function openLoginPopup () {
-    props.auth();
     props.openLogin(true);
   }
 
   function logOut () {
     history.push('/');
     props.auth();
+    localStorage.removeItem('jwt');
   }
 
   return (
@@ -26,7 +26,7 @@ export default function Navigation (props) {
             <Route exact path='/'>
               <li><Link to="/" className='navigation__item navigation__item_underline'>Главная</Link></li>
               <li>{props.loggedIn || props.open ? <Link to='/saved-news' className='navigation__item'>Сохранённые статьи</Link> : ''}</li>
-              <li>{props.loggedIn ? <button className='navigation__btn' onClick={props.auth}>{'Руслан'}<img className='navigation__logout' src={logoutImg} alt='иконка кнопки выхода'/></button> : <button className='navigation__btn' onClick={openLoginPopup}>Авторизироваться</button>}</li>
+              <li>{props.loggedIn ? <button className='navigation__btn' onClick={logOut}>{'Руслан'}<img className='navigation__logout' src={logoutImg} alt='иконка кнопки выхода'/></button> : <button className='navigation__btn' onClick={openLoginPopup}>Авторизироваться</button>}</li>
             </Route>
             <Route exact path='/saved-news'>
               <li><Link to="/" className='navigation__item navigation__item_black '>Главная</Link></li>
