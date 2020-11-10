@@ -10,7 +10,7 @@ export default function NewsCard (props) {
   }
 
   return (
-    <div className='newscard '>
+    <div className='newscard' id={props.id + 1}>
       {props.saved ? <button className={`newscard__icon newscard__icon_trash`}></button> : props.loggedIn ? <button className={`newscard__icon ${mark ? 'newscard__icon_marked' : ''}`} onClick={setCardMarked}></button> : <button className={`newscard__icon newscard__icon_not-loggedin`}></button>}
       <span className={`newscard__keyword ${props.saved ? '' : 'newscard__keyword_hidden'}` }>{props.keyword}</span>
       <img className='newscard__img' src={props.image} alt='Картинка новости'/>

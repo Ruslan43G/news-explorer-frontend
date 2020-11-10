@@ -16,12 +16,16 @@ const text3 = 'Знаменитый фотограф снимает первоз
 
 export default function NewsCardList (props) {
 
+  const formatDate = (item) => {
+    const dataParse = new Date(item);
+    const data = `${dataParse.toLocaleString("ru", { month: 'long', day: 'numeric' })}, ${dataParse.getFullYear()}`;
+    return data;
+  }
+
   return (
     <section className='newscardlist'>
       <div className={`newscardlist__container`}>
-        <NewsCard loggedIn={props.loggedIn} keyword={'Природа'} image={image1} date={'2 августа, 2019'} title={title1} text={text1} source={'ДЗЭН'} />
-        <NewsCard loggedIn={props.loggedIn} keyword={'Тайга'} image={image2} date={'2 августа, 2019'} title={title2} text={text2} source={'Афиша'} />
-        <NewsCard loggedIn={props.loggedIn} keyword={'Фотография'} image={image3} date={'2 августа, 2019'} title={title3} text={text3} source={'Медиазона'} />
+        {props.articles.map((item, index) => <NewsCard key={index} id={index} loggedIn={props.loggedIn} image={item.urlToImage} date={formatDate(item.publishedAt)} title={item.title} text={item.description} source={item.source.name} />)}
       </div>
       <button className='newscardlist__show-btn'>Показать еще</button>
     </section>

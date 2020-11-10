@@ -25,7 +25,6 @@ export default function LoginPopup (props) {
   const handleSubmit = () => {
     props.handleLogin({ ...user })
       .then((res) => {
-        console.log(res);
         props.setLoggedIn(true);
         props.close(false);
         localStorage.setItem('jwt', res.token)
