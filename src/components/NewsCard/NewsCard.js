@@ -1,5 +1,6 @@
 import React from 'react';
 import './NewsCard.css';
+import MainApi from '../../utils/MainApi';
 
 export default function NewsCard (props) {
   // переменная состояния отвечающая за отметку карточек сохраненными
@@ -26,7 +27,7 @@ export default function NewsCard (props) {
 
   return (
     <div className='newscard' id={props.id + 1} data-keyword={props.keyword}>
-      {props.saved ? <button className={`newscard__icon newscard__icon_trash`}></button> : props.loggedIn ? <button className={`newscard__icon ${mark ? 'newscard__icon_marked' : ''}`} onClick={saveArticle}></button> : <button className={`newscard__icon newscard__icon_not-loggedin`}></button>}
+      {props.saved ? <button className={`newscard__icon newscard__icon_trash`} onClick={() => props.deleteArticle(props.id)}></button> : props.loggedIn ? <button className={`newscard__icon ${mark ? 'newscard__icon_marked' : ''}`} onClick={saveArticle}></button> : <button className={`newscard__icon newscard__icon_not-loggedin`}></button>}
       <span className={`newscard__keyword ${props.saved ? '' : 'newscard__keyword_hidden'}` }>{props.keyword}</span>
       <img className='newscard__img' src={props.image} alt='Картинка новости'/>
       <div className='newscard__content'>

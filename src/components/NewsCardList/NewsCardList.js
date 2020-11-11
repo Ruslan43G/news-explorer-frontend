@@ -5,6 +5,7 @@ import NewsCard from '../NewsCard/NewsCard';
 export default function NewsCardList (props) {
   const [ index, setIndex ] = React.useState(6);
   const [ articles, setArticles ] = React.useState(props.articles.slice(0, 3));
+  const [saved, setSaved] = React.useState(true);
 
   const showMoreArticles = () => {
     setIndex(prev => prev += 3);

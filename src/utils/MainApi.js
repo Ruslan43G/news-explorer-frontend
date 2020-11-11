@@ -78,6 +78,17 @@ class MainApi {
       })
       .then(res => res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`))
     }
+
+  deleteArticle (token, id) {
+    return fetch(`${this._url}/articles/${id}`, {
+      method: 'DELETE',
+      headers: {
+        ...this._headers,
+        authorization: `Bearer ${token}`,
+      }
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`))
+  }
 }
 
 const mainApi = new MainApi({
