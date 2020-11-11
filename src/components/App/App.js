@@ -26,6 +26,8 @@ function App() {
   const [loginIsopen, setLoginIsOpen] = React.useState(false);
   // переменная состояния попапа с сообщением
   const [succesIsopen, setSuccesIsOpen] = React.useState(false);
+  // стэйт результата запроса поиска новостей
+  const [notFound, setNotFound] = React.useState(false);
 
   function changeLoggedInStatus () {
     setLoggedIn(!loggedIn);
@@ -43,9 +45,29 @@ function App() {
     return newsApi.searchRequest(keyword)
   }
 
+  const saveArticleRequest = (jwt, {
+    keyword,
+    title,
+    text,
+    date,
+    source,
+    link,
+    image,
+  }) => {
+    return mainApi.saveArticle(jwt, {
+      keyword,
+      title,
+      text,
+      date,
+      source,
+      link,
+      image,
+    })
+  }
+
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    setLoggedIn(jwt);
+    setLoggedIn(!!jwt);
     mainApi.getUserInfo(jwt)
       .then((res) => {
         setUser({
@@ -63,7 +85,7 @@ function App() {
         <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light} openLogin={setLoginIsOpen} loginPopup={loginIsopen}/>
         <Switch>
           <Route exact path='/'>
-            <Main request={newsRequest} header={setLight} loggedIn={loggedIn}/>
+            <Main request={newsRequest} header={setLight} loggedIn={loggedIn} notFound={notFound} setResult={setNotFound} saveArticleRequest={saveArticleRequest} />
           </Route>
           <Route path='/saved-news'>
             <SavedNewsheader header={setLight}/>

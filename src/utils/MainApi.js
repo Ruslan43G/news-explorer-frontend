@@ -50,6 +50,34 @@ class MainApi {
     })
     .then(res => res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`))
   }
+
+  saveArticle(token, {
+    keyword,
+    title,
+    text,
+    date,
+    source,
+    link,
+    image,
+  }) {
+      return fetch(`${this._url}/articles`, {
+        method : 'POST',
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          keyword,
+          title,
+          text,
+          date,
+          source,
+          link,
+          image,
+        })
+      })
+      .then(res => res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`))
+    }
 }
 
 const mainApi = new MainApi({

@@ -2,23 +2,31 @@ import React from 'react';
 import './SearchForm.css';
 
 export default function SearchForm (props) {
-  const [keyword, setKeyword] = React.useState('');
 
   const handleKeywordInput = (evt) => {
-    setKeyword(evt.target.value);
+    props.setKeyword(evt.target.value);
   }
+
   function searchSubmit (evt) {
+    props.setLoading(true);
     evt.preventDefault();
-    props.request(keyword)
+    props.request(props.keyword)
       .then((res) => {
-        console.log(res);
+        if (res.articles.length === 0) {
+          return props.setResult(true);
+        }
         const articles = Array.from(res.articles);
+        articles.map(el => el.keyword = props.keyword);
         props.setArticles(articles);
         localStorage.setItem('articles', JSON.stringify(articles));
         const a = JSON.parse(localStorage.getItem('articles'));
         console.log(a)
       })
-      .catch(err => console.log(err))
+      .catch((err) => {
+        console.log(err);
+        props.setResult(true)
+      })
+      .finally(() => props.setLoading(false));
   }
 
   return (
