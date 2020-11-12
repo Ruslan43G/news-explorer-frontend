@@ -18,7 +18,10 @@ export default function SavedNews (props) {
   const deleteArticle = (id) => {
     const jwt = localStorage.getItem('jwt');
     MainApi.deleteArticle(jwt, id)
-      .then(res => console.log(res))
+      .then((res) => {
+        console.log(res);
+        setArticles(articles.filter(item => item._id !== id));
+      })
       .catch(err => console.log(err))
 
   }

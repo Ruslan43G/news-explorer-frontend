@@ -16,7 +16,11 @@ export default function SearchForm (props) {
           return props.setResult(true);
         }
         const articles = Array.from(res.articles);
-        articles.map(el => el.keyword = props.keyword);
+        articles.map((el, i) => {
+          el.keyword = props.keyword;
+          el.id = i + 1;
+          return el;
+        });
         props.setArticles(articles);
         localStorage.setItem('articles', JSON.stringify(articles));
         const a = JSON.parse(localStorage.getItem('articles'));

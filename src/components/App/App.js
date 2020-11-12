@@ -65,6 +65,10 @@ function App() {
     })
   }
 
+  const deleteArticleRequest = (jwt, id) => {
+    return mainApi.deleteArticle(jwt, id);
+  }
+
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     setLoggedIn(!!jwt);
@@ -77,7 +81,7 @@ function App() {
         });
       })
       .catch((err) => console.log(err));
-  }, [])
+  }, [loggedIn])
 
   return (
     <div className="app">
@@ -85,7 +89,7 @@ function App() {
         <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light} openLogin={setLoginIsOpen} loginPopup={loginIsopen}/>
         <Switch>
           <Route exact path='/'>
-            <Main request={newsRequest} header={setLight} loggedIn={loggedIn} notFound={notFound} setResult={setNotFound} saveArticleRequest={saveArticleRequest} />
+            <Main request={newsRequest} header={setLight} loggedIn={loggedIn} notFound={notFound} setResult={setNotFound} saveArticleRequest={saveArticleRequest} deleteArticle={deleteArticleRequest}/>
           </Route>
           <Route path='/saved-news'>
             <SavedNewsheader header={setLight}/>
