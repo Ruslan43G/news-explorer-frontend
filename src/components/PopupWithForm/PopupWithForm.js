@@ -3,9 +3,10 @@ import './PopupWithForm.css';
 
 export default function PopupWithForm (props) {
 
+
   function overlayClose (evt) {
     if (evt.target === evt.currentTarget) {
-      closePopup()
+      closePopup(evt)
     }
   }
 
@@ -20,7 +21,7 @@ export default function PopupWithForm (props) {
 
   function escClose (evt) {
     if (evt.key === 'Escape') {
-      closePopup()
+      closePopup(evt)
     }
   }
 

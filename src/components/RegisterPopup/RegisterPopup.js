@@ -13,7 +13,10 @@ export default function RegisterPopup (props) {
   const [buttonState, setButtonState] = React.useState(true);
   // сброс ошибок валидации
   const resetForm = (evt) => {
-    evt.target.closest('form').reset();
+    const form = evt.target.querySelector('form') || evt.target.closest('form');
+    if (form) {
+      form.reset();
+    }
     props.close()
     setSpanNameText('');
     setSpanEmailText('');

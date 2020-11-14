@@ -17,7 +17,10 @@ export default function LoginPopup (props) {
   }
   // сброс ошибок валидации
   const resetForm = (evt) => {
-    evt.target.closest('form').reset();
+    const form = evt.target.querySelector('form') || evt.target.closest('form');
+    if (form) {
+      form.reset();
+    }
     props.close();
     setSpanEmailText('');
     setSpanPasswordText('');
@@ -54,6 +57,9 @@ export default function LoginPopup (props) {
         console.log(err);
       })
   }
+
+  React.useEffect(() => {
+  })
   return (
     <PopupWithForm button={buttonState} error={resError} submit={handleSubmit}name={'signin'} link={props.link} isOpen={props.isOpen} close={resetForm} title='Вход' buttonText='Войти' linkText='Зарегистрироваться' >
       <label className='popup__label'>Email</label>
