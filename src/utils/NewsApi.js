@@ -7,12 +7,9 @@ class NewsApi {
   searchRequest (keyword) {
     const date = new Date();
     const today = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-    console.log(today);
     const sevenDays = date.getDate() - 7;
     date.setDate(sevenDays);
     const weekAgo = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-    console.log(weekAgo)
-    console.log(this._key);
 
     return fetch(`${this._url}?language=ru&q=${keyword}&from=${weekAgo}&to=${today}&pageSize=100&apiKey=${this._key}`, {
       method: 'GET'

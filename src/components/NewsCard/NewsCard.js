@@ -1,6 +1,5 @@
 import React from 'react';
 import './NewsCard.css';
-import MainApi from '../../utils/MainApi';
 
 import emtyPic from '../../images/NewsCard/empty-logo.jpg'
 
@@ -39,7 +38,6 @@ export default function NewsCard (props) {
           localStorage.setItem('saved', JSON.stringify([...prev, props.data.id]));
           return [...prev, props.data.id]
         });
-        console.log(res);
         setCardMarked();
       })
       .catch(err => console.log(err));
@@ -77,7 +75,7 @@ export default function NewsCard (props) {
 
   return (
     <div className='newscard' id={id} data-keyword={props.keyword}>
-      {props.saved ? <button className={`newscard__icon newscard__icon_trash`} onClick={() => props.deleteArticle(props.id)}></button> : props.loggedIn ? <button className={`newscard__icon ${mark ? 'newscard__icon_marked' : ''}`} onClick={mark ? deleteArticle : saveArticle}></button> : <button className={`newscard__icon newscard__icon_not-loggedin`}></button>}
+      {props.saved ? <button className={`newscard__icon newscard__icon_trash`} onClick={() => props.deleteArticle(props.id)}></button> : props.loggedIn ? <button className={`newscard__icon ${mark ? 'newscard__icon_marked' : ''}`} onClick={mark ? deleteArticle : saveArticle}></button> : <button className={`newscard__icon newscard__icon_not-loggedin`} onClick={() => props.openLogin(true)} ></button>}
       <span className={`newscard__keyword ${props.saved ? '' : 'newscard__keyword_hidden'}` }>{props.keyword}</span>
       <img className='newscard__img' src={checkImageUrl(props.image)} alt='Картинка новости'/>
       <div className='newscard__content'>

@@ -9,12 +9,12 @@ export default function PopupWithForm (props) {
     }
   }
 
-  function closePopup () {
-    props.close(false);
+  function closePopup (evt) {
+    props.close(evt);
   }
 
-  function openAnotherPopup () {
-    closePopup();
+  function openAnotherPopup (evt) {
+    closePopup(evt);
     props.link(true)
   }
 
@@ -42,7 +42,7 @@ export default function PopupWithForm (props) {
         <h3 className='popup__title'>{props.title}</h3>
         {props.children}
         <span className='popup__server-error'>{props.error}</span>
-        <button type='submit' className='popup__submit' onClick={submithandler}>{props.buttonText}</button>
+        <button type='submit' className={`popup__submit ${props.button ? '' : 'popup__submit_disabled'}`} disabled={!props.button} onClick={submithandler}>{props.buttonText}</button>
         <p className='popup__footer'>или<button type='button' onClick={openAnotherPopup} className='popup__link'>{props.linkText}</button></p>
       </form>
     </section>

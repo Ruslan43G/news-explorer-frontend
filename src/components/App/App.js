@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 import Header from '../Header/Header';
@@ -12,6 +12,7 @@ import LoginPopup from '../LoginPopup/LoginPopup';
 import PopupSucces from '../PopupSucces/PopupSucces';
 import mainApi from '../../utils/MainApi';
 import newsApi from '../../utils/NewsApi';
+import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute'
 
 function App() {
   // переменная состояния отвечающая за авторизацию.
@@ -28,6 +29,8 @@ function App() {
   const [succesIsopen, setSuccesIsOpen] = React.useState(false);
   // стэйт результата запроса поиска новостей
   const [notFound, setNotFound] = React.useState(false);
+  // стэйт для сохранённых новостей
+  const [ savedArticles, setSavedArticles ] = React.useState([]);
 
   function changeLoggedInStatus () {
     setLoggedIn(!loggedIn);
@@ -89,12 +92,18 @@ function App() {
         <Header loggedIn={loggedIn} auth={changeLoggedInStatus} theme={light} openLogin={setLoginIsOpen} loginPopup={loginIsopen}/>
         <Switch>
           <Route exact path='/'>
-            <Main request={newsRequest} header={setLight} loggedIn={loggedIn} notFound={notFound} setResult={setNotFound} saveArticleRequest={saveArticleRequest} deleteArticle={deleteArticleRequest}/>
+            <Main openLogin={setRegIsOpen} request={newsRequest} header={setLight} loggedIn={loggedIn} notFound={notFound} setResult={setNotFound} saveArticleRequest={saveArticleRequest} deleteArticle={deleteArticleRequest}/>
           </Route>
-          <Route path='/saved-news'>
-            <SavedNewsheader header={setLight}/>
-            <SavedNews />
-          </Route>
+          <ProtectedRoute exact path='/saved-news'
+            loggedIn={loggedIn}
+            component={SavedNewsheader}
+            secondComponent={SavedNews}
+            header={setLight}
+            articles={savedArticles}
+            deleteArticle={deleteArticleRequest}
+            saved={savedArticles}
+            setSaved={setSavedArticles}
+          />
         </Switch>
           <LoginPopup isOpen={loginIsopen} link={setRegIsOpen} close={setLoginIsOpen} handleLogin={login} setLoggedIn={setLoggedIn}/>
           <RegisterPopup isOpen={regIsopen} link={setLoginIsOpen} close={setRegIsOpen} succes={setSuccesIsOpen} handleRegister={register}/>

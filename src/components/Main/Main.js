@@ -27,7 +27,7 @@ export default function Main (props) {
   return (
       <main className="main">
         <Searchform keyword={keyword} setKeyword={setKeyword} request={props.request} setArticles={setArticles} setResult={props.setResult} setLoading={setIsLoading}/>
-        {articles.length >= 1 ? <SearchReuslts saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} loggedIn={props.loggedIn} articles={articles}/> : ''}
+        {articles.length >= 1 ? <SearchReuslts openLogin={props.openLogin} saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} loggedIn={props.loggedIn} articles={articles}/> : ''}
         {isLoading ? <Preloader /> : ''}
         {props.notFound ? <NotFound /> : ''}
         <About />

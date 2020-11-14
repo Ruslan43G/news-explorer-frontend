@@ -5,22 +5,18 @@ import MainApi from '../../utils/MainApi';
 
 export default function SavedNews (props) {
 
-  const [saved, setSaved] = React.useState(true);
-  const [articles, setArticles] = React.useState([]);
-
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     MainApi.showArticles(jwt)
-      .then(res => setArticles(res))
+      .then(res => props.setSaved(res))
       .catch(err => console.log(err))
   }, [])
 
   const deleteArticle = (id) => {
     const jwt = localStorage.getItem('jwt');
-    MainApi.deleteArticle(jwt, id)
+    props.deleteArticle(jwt, id)
       .then((res) => {
-        console.log(res);
-        setArticles(articles.filter(item => item._id !== id));
+        props.setSaved(props.saved.filter(item => item._id !== id));
       })
       .catch(err => console.log(err))
 
@@ -28,7 +24,7 @@ export default function SavedNews (props) {
 
   return (
     <section className='savednews'>
-      {articles.map(el => <NewsCard saved={saved} key={el._id} id={el._id} loggedIn={props.loggedIn} keyword={el.keyword} image={el.image} date={el.date} title={el.title} text={el.text} source={el.source} deleteArticle={deleteArticle}/>)}
+      {props.saved.map(el => <NewsCard saved={true} key={el._id} id={el._id} loggedIn={props.loggedIn} keyword={el.keyword} image={el.image} date={el.date} title={el.title} text={el.text} source={el.source} deleteArticle={deleteArticle}/>)}
     </section>
   )
 }

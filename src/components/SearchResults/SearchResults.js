@@ -7,7 +7,7 @@ export default function SearchReslusts (props) {
   return (
     <section className='searchresults'>
       <h3 className='searchresults__title'>Результаты поиска</h3>
-      <NewsCardlist saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} loggedIn={props.loggedIn} articles={props.articles}/>
+      <NewsCardlist openLogin={props.openLogin} saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} loggedIn={props.loggedIn} articles={props.articles}/>
     </section>
   )
 }
