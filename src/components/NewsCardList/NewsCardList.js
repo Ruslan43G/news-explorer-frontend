@@ -1,29 +1,34 @@
 import React from 'react';
 import './NewsCardList.css';
 import NewsCard from '../NewsCard/NewsCard';
-import image1 from '../../images/NewsCard/image.jpg';
-import image2 from '../../images/NewsCard/image2.jpg';
-import image3 from '../../images/NewsCard/image3.jpg';
-
-// Временные константы для наполнения карточек
-const title1 = 'Национальное достояние – парки';
-const title2 = 'Лесные огоньки: история одной фотографии';
-const title3 = '«Первозданная тайга»: новый фотопроект Игоря Шпиленка';
-const text1 = 'В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.';
-const text2 = 'Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.';
-const text3 = 'Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...';
-
 
 export default function NewsCardList (props) {
+  // стейты
+  const [ index, setIndex ] = React.useState(6);
+  const [ articles, setArticles ] = React.useState(props.articles.slice(0, 3));
+
+  const [saved, setSaved] = React.useState([]);
+
+  //функция для клика по енопке показать еще. Добавляет в массив еще новостей
+  const showMoreArticles = () => {
+    setIndex(prev => prev += 3);
+    setArticles(props.articles.slice(0, index));
+  }
+
+  React.useEffect(() => {
+    const saved = localStorage.getItem('saved');
+    if (saved) {
+      setSaved(JSON.parse(saved));
+    }
+    setArticles(props.articles.slice(0, 3));
+  }, [props.articles])
 
   return (
     <section className='newscardlist'>
       <div className={`newscardlist__container`}>
-        <NewsCard loggedIn={props.loggedIn} keyword={'Природа'} image={image1} date={'2 августа, 2019'} title={title1} text={text1} source={'ДЗЭН'} />
-        <NewsCard loggedIn={props.loggedIn} keyword={'Тайга'} image={image2} date={'2 августа, 2019'} title={title2} text={text2} source={'Афиша'} />
-        <NewsCard loggedIn={props.loggedIn} keyword={'Фотография'} image={image3} date={'2 августа, 2019'} title={title3} text={text3} source={'Медиазона'} />
+        {articles.map((item) => <NewsCard openLogin={props.openLogin} saveNews={setSaved} news={saved} data={item} saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} key={item.id + 1} id={item.id} keyword={item.keyword} loggedIn={props.loggedIn} image={item.urlToImage} date={item.publishedAt} title={item.title} text={item.description} source={item.source.name} />)}
       </div>
-      <button className='newscardlist__show-btn'>Показать еще</button>
+      {props.articles.length !== articles.length ? <button className='newscardlist__show-btn' onClick={showMoreArticles}>Показать еще</button> : ''}
     </section>
   )
 }

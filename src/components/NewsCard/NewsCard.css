@@ -146,6 +146,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow-y: hidden;
+  /* min-height: 90px; */
 }
 
 .newscard__text {
@@ -159,6 +160,7 @@
   -webkit-box-orient: vertical;
   overflow-y: hidden;
   margin: 0;
+  /* min-height: 88px; */
 }
 
 .newscard__source {
