@@ -29,7 +29,7 @@ export default function SavedNewsHeader (props) {
 
   return (
     <section className='savednews-header'>
-      <p className='savednews-header__name' onClick={() => console.log(keywords)}>Сохранённые статьи</p>
+      <p className='savednews-header__name'>Сохранённые статьи</p>
       <h2 className='savednews-header__title'>{`${name}, у вас ${props.articles.length} ${savedText}`}</h2>
       <p className='savednews-header__subtitle'>По ключевым словам: <span className='savednews-header__span'>{keywords.length > 3 ? `${keywords[0]}, ${keywords[1]} и ${keywords.length - 2}-м другим` : `${keywords.join(', ')}`}</span></p>
     </section>
