@@ -7,6 +7,7 @@ export default function NewsCard (props) {
   // переменная состояния отвечающая за отметку карточек сохраненными
   const [mark, setmark] = React.useState(false);
   const [id, setId] = React.useState('');
+  const [img, setImg] = React.useState(props.image)
 
   // функция для отметки карты сохраненной
   function setCardMarked () {
@@ -60,10 +61,10 @@ export default function NewsCard (props) {
   }
 
   // функция проверяет ссылку на картинку на корректность
-  const checkImageUrl = (url) => {
-    if (!url) return emtyPic;
-    return url;
+  const checkImageUrl = () => {
+     setImg(emtyPic);
   }
+
 
   React.useEffect(() => {
     const savedArticle = JSON.parse(localStorage.getItem('saved'));
@@ -77,7 +78,7 @@ export default function NewsCard (props) {
     <div className='newscard' id={id} data-keyword={props.keyword}>
       {props.saved ? <button className={`newscard__icon newscard__icon_trash`} onClick={() => props.deleteArticle(props.id)}></button> : props.loggedIn ? <button className={`newscard__icon ${mark ? 'newscard__icon_marked' : ''}`} onClick={mark ? deleteArticle : saveArticle}></button> : <button className={`newscard__icon newscard__icon_not-loggedin`} onClick={() => props.openLogin(true)} ></button>}
       <span className={`newscard__keyword ${props.saved ? '' : 'newscard__keyword_hidden'}` }>{props.keyword}</span>
-      <img className='newscard__img' src={checkImageUrl(props.image)} alt='Картинка новости'/>
+      <img onError={checkImageUrl} className='newscard__img' src={img} alt='Картинка новости'/>
       <div className='newscard__content'>
         <small className='newscard__date'>{formatDate(props.date)}</small>
         <h4 className='newscard__title'>{props.title}</h4>

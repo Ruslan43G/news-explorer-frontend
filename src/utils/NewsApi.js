@@ -18,6 +18,6 @@ class NewsApi {
   }
 }
 
-const newsApi = new NewsApi({baseUrl: 'https://newsapi.org/v2/everything', key: '702b3d59d78340098c0ec1818e26c34c' });
+const newsApi = new NewsApi({baseUrl: 'https://nomoreparties.co/news/v2/everything', key: '702b3d59d78340098c0ec1818e26c34c' });
 
 export default newsApi;

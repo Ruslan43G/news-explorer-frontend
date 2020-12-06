@@ -92,7 +92,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: 'http://api.ruslan.news.students.nomoreparties.xyz/',
+  baseUrl: 'https://api.ruslan.news.students.nomoreparties.xyz',
   headers: {
     "Content-Type": "application/json"
   },
