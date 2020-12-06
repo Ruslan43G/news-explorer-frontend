@@ -24,7 +24,7 @@ export default function SavedNews (props) {
 
   return (
     <section className='savednews'>
-      {props.saved.map(el => <NewsCard saved={true} key={el._id} id={el._id} loggedIn={props.loggedIn} keyword={el.keyword} image={el.image} date={el.date} title={el.title} text={el.text} source={el.source} deleteArticle={deleteArticle}/>)}
+      {props.saved.map(el => <NewsCard saved={true} key={el._id} id={el._id} loggedIn={props.loggedIn} keyword={el.keyword} image={el.image} date={el.date} url={el.link} title={el.title} text={el.text} source={el.source} deleteArticle={deleteArticle}/>)}
     </section>
   )
 }
