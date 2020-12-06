@@ -26,7 +26,7 @@ export default function NewsCardList (props) {
   return (
     <section className='newscardlist'>
       <div className={`newscardlist__container`}>
-        {articles.map((item) => <NewsCard openLogin={props.openLogin} saveNews={setSaved} news={saved} data={item} saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} key={item.id + 1} id={item.id} keyword={item.keyword} loggedIn={props.loggedIn} image={item.urlToImage} date={item.publishedAt} title={item.title} text={item.description} source={item.source.name} />)}
+        {articles.map((item) => <NewsCard openLogin={props.openLogin} saveNews={setSaved} news={saved} data={item} saveArticleRequest={props.saveArticleRequest} deleteArticle={props.deleteArticle} key={item.id + 1} id={item.id} keyword={item.keyword} url={item.url} loggedIn={props.loggedIn} image={item.urlToImage} date={item.publishedAt} title={item.title} text={item.description} source={item.source.name} />)}
       </div>
       {props.articles.length !== articles.length ? <button className='newscardlist__show-btn' onClick={showMoreArticles}>Показать еще</button> : ''}
     </section>
